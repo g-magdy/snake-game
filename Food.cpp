@@ -26,5 +26,11 @@ Vector2 Food::generateRandomPosition()
 
 Food::~Food()
 {
-    UnloadTexture(texture);
+    // UnloadTexture(texture);
+    // for some reason, running this produces a segmentation fault.
+    
+    //* and another problem: there is a memory leak in X11 !!!
+    //* it turns out after some debugging with 
+    //* valgrind --leak-check=full ./game
+    //* and using a blank template .. the output of valgrind points to libX11 file
 }

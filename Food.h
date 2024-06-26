@@ -10,7 +10,7 @@ private:
 public:
     /// @brief Creates a food object
     Food();
-
+    
     /// @brief Draws a food object in a random position
     void draw();
 

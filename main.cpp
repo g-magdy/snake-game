@@ -1,6 +1,6 @@
 #include <raylib.h>
+#include <iostream>
 #include "Food.h"
-
 // Color {r, g, b, alpha}
 // 0 (transparent) <= alpha <= 255 (opaque)
 
@@ -20,7 +20,7 @@ int main()
     //! you'll get segmentation fault
 
     // create game objects here
-    Food f1 = Food();
+    Food f1;
 
     SetTargetFPS(60);
     while (!WindowShouldClose())
