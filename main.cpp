@@ -1,8 +1,12 @@
-#include <raylib.h>
-#include <iostream>
+#include "Constants.h"
+
 #include "Food.h"
-// Color {r, g, b, alpha}
-// 0 (transparent) <= alpha <= 255 (opaque)
+#include "Snake.h"
+
+/**
+ * These are the global constants. They are declared as "extern" in Constants.h file.
+ * To be used in all projects' files. they are only initialized her.
+ */
 
 Color green = {173, 204, 96, 255};
 Color darkGreen = {43, 51, 24, 255};
