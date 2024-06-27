@@ -16,7 +16,7 @@ Food::Food()
 void Food::draw()
 {
     // DrawRectangle(position.x * cellSize, position.y * cellSize, cellSize, cellSize, YELLOW);
-    DrawTexture(texture, position.x * cellSize, position.y * cellSize, WHITE);
+    DrawTexture(texture, offset + position.x * cellSize, offset + position.y * cellSize, WHITE);
 }
 
 Vector2 Food::generateRandomPosition()

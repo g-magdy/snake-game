@@ -9,9 +9,11 @@ Color green = {173, 204, 96, 255};
 Color darkGreen = {43, 51, 24, 255};
 
 const int cellSize = 28;
-const int cellCount = 25; 
+const int cellCount = 25;
+const int offset = 75;
 
-const int windowSize = cellSize * cellCount;
+const int playWindowSize = cellSize * cellCount;
+const int windowSize = playWindowSize + 2 * offset;
 
 int currentFPS = 5;
 
@@ -24,8 +26,6 @@ int main()
     //! important: if you create textures before the InitWindow()
     //! you'll get segmentation fault
 
-    
-
     // create game objects here
     Game game;
 
@@ -34,12 +34,14 @@ int main()
     {
         // handle events here
 
-
         // update objects here
         game.update();
 
         BeginDrawing();
         ClearBackground(green);
+        DrawRectangleLinesEx(
+            Rectangle{offset - 5, offset - 5, playWindowSize + 10, playWindowSize + 10},
+            5, darkGreen);
 
         // draw here
         game.draw();

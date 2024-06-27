@@ -14,7 +14,7 @@ void Snake::draw()
     for (auto segment : body)    
     {
         // RECTANGLE, ROUNDNESS, SEGMENTS, COLOR
-        DrawRectangleRounded(Rectangle{segment.x * cellSize, segment.y * cellSize, (float)cellSize, (float)cellSize}, 0.7, 6, darkGreen);
+        DrawRectangleRounded(Rectangle{offset + segment.x * cellSize, offset + segment.y * cellSize, (float)cellSize, (float)cellSize}, 0.7, 6, darkGreen);
     }
 }
 

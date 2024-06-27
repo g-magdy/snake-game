@@ -18,5 +18,6 @@ public:
     void update();
     void checkCollisionWithFood();
     void checkCollisionWithEdges();
+    void checkCollisionWithBody();
     void gameOver();
 };

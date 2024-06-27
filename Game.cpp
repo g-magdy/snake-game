@@ -18,6 +18,7 @@ void Game::update()
         snake.update();
         checkCollisionWithFood();
         checkCollisionWithEdges();
+        checkCollisionWithBody();
     }
 }
 
@@ -33,7 +34,7 @@ void Game::checkCollisionWithFood()
             food.position = food.generateRandomPosition();
         } while (snake.contains(food.position));
 
-        snake.body.push_back(Vector2Subtract(snake.body.back(), snake.direction));
+        snake.body.push_back(snake.body.back());
     }
 }
 
@@ -45,6 +46,15 @@ void Game::checkCollisionWithEdges()
 
     if (snake.body[0].y >= cellCount || snake.body[0].y <= -1)
         gameOver();
+}
+
+void Game::checkCollisionWithBody()
+{
+    for (int i = 1; i < snake.body.size(); i++)
+    {
+        if (Vector2Equals(snake.body[i], snake.body[0]))
+            gameOver();
+    }
 }
 
 void Game::gameOver()

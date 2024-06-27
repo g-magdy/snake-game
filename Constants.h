@@ -14,6 +14,8 @@ extern Color darkGreen;
 
 extern const int cellSize;
 extern const int cellCount;
+extern const int offset;
+extern const int playWindowSize;
 extern const int windowSize;
 
 extern const deque<Vector2> initialSnakeBody;
