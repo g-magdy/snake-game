@@ -1,6 +1,6 @@
 TARGET = game
 
-SRCS = main.cpp Food.cpp Snake.cpp
+SRCS = main.cpp Food.cpp Snake.cpp Game.cpp
 
 CXX = g++
 

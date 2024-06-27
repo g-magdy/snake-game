@@ -4,10 +4,11 @@
 class Food
 {
 private:
-    Vector2 position;
     Texture2D texture;
 
 public:
+    Vector2 position;
+    
     /// @brief Creates a food object
     Food();
 
