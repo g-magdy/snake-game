@@ -3,10 +3,7 @@
 
 Snake::Snake()
 {
-    body = initialSnakeBody;
-    currentDirection = RIGHT;
-
-    direction = {1, 0};
+    reset();
 }
 
 void Snake::draw()
@@ -36,6 +33,14 @@ void Snake::readKey()
         direction = {1, 0};
         currentDirection = RIGHT;
     }
+}
+
+void Snake::reset()
+{
+    body = initialSnakeBody;
+    currentDirection = RIGHT;
+
+    direction = {1, 0};
 }
 
 void Snake::update()

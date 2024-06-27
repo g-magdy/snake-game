@@ -3,6 +3,7 @@
 Game::Game()
 {
     gameIsRunning = true;
+    gameisOver = false;
 }
 
 void Game::draw()
@@ -61,4 +62,5 @@ void Game::gameOver()
 {
     cout << "GAME OVER\n";
     gameIsRunning = false;
+    gameisOver = true;
 }

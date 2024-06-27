@@ -18,6 +18,8 @@ public:
     void draw();
     void update();
 
+    void reset();
+
     bool contains(Vector2 vec);
 
     ~Snake();

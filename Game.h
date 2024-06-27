@@ -13,6 +13,7 @@ public:
     Food food;
     Snake snake;
     bool gameIsRunning;
+    bool gameisOver;
 
     void draw();
     void update();

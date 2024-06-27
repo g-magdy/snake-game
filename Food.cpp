@@ -3,11 +3,8 @@
 Food::Food()
 {
     // ensure that the first food generation is out of the snake's body
-    do
-    {
-        position = generateRandomPosition();
-    } while (contain(initialSnakeBody, position));
-    
+    reset();
+
     Image img = LoadImage("food.png");
     texture = LoadTextureFromImage(img);
     UnloadImage(img);
@@ -17,6 +14,14 @@ void Food::draw()
 {
     // DrawRectangle(position.x * cellSize, position.y * cellSize, cellSize, cellSize, YELLOW);
     DrawTexture(texture, offset + position.x * cellSize, offset + position.y * cellSize, WHITE);
+}
+
+void Food::reset()
+{
+    do
+    {
+        position = generateRandomPosition();
+    } while (contain(initialSnakeBody, position));
 }
 
 Vector2 Food::generateRandomPosition()
