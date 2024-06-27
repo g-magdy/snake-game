@@ -16,6 +16,7 @@ const int cellCount = 25;
 
 const int windowSize = cellSize * cellCount;
 
+
 int main()
 {
     InitWindow(windowSize, windowSize, "Snake Game");
@@ -25,6 +26,7 @@ int main()
 
     // create game objects here
     Food f1;
+    Snake snake;
 
     SetTargetFPS(60);
     while (!WindowShouldClose())
@@ -32,12 +34,14 @@ int main()
         // handle events here
 
         // update objects here
+        snake.update();
 
         BeginDrawing();
         ClearBackground(green);
         
         // draw here
         f1.draw();
+        snake.draw();
 
         EndDrawing();
     }
