@@ -13,6 +13,8 @@ public:
 
     Snake();
 
+    void readKey();
+
     void draw();
     void update();
 

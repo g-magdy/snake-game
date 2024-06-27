@@ -18,11 +18,8 @@ void Snake::draw()
     }
 }
 
-void Snake::update()
+void Snake::readKey()
 {
-    body.pop_back();
-
-
     if (IsKeyPressed(KEY_UP) && currentDirection != DOWN){
         direction = {0, -1};
         currentDirection = UP;
@@ -39,9 +36,12 @@ void Snake::update()
         direction = {1, 0};
         currentDirection = RIGHT;
     }
+}
 
+void Snake::update()
+{
+    body.pop_back();
     body.push_front(Vector2Add(body.front(), direction));
-
 }
 
 Snake::~Snake()

@@ -15,9 +15,11 @@ const int offset = 75;
 const int playWindowSize = cellSize * cellCount;
 const int windowSize = playWindowSize + 2 * offset;
 
-int currentFPS = 5;
+int currentFPS = 60;
 
 const deque<Vector2> initialSnakeBody = {Vector2{6, 9}, Vector2{5, 9}, Vector2{4, 9}};
+
+double lastUpdate = GetTime();
 
 int main()
 {
@@ -33,9 +35,15 @@ int main()
     while (!WindowShouldClose())
     {
         // handle events here
+        game.snake.readKey();
 
         // update objects here
-        game.update();
+        double curr = GetTime();
+        if (curr - lastUpdate >= 0.3)
+        {
+            lastUpdate = curr;
+            game.update();
+        }
 
         BeginDrawing();
         ClearBackground(green);
