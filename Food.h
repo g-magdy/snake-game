@@ -5,6 +5,7 @@ class Food
 {
 private:
     Texture2D texture;
+    bool contain(deque<Vector2>, Vector2);
 
 public:
     Vector2 position;

@@ -16,6 +16,8 @@ extern const int cellSize;
 extern const int cellCount;
 extern const int windowSize;
 
+extern const deque<Vector2> initialSnakeBody;
+
 /// @brief to determine the current direction of the snake progress
 enum Direction
 {

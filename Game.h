@@ -8,10 +8,15 @@
 class Game
 {
 public:
+    Game();
+
     Food food;
     Snake snake;
+    bool gameIsRunning;
 
     void draw();
     void update();
-    void checkCollisions();
+    void checkCollisionWithFood();
+    void checkCollisionWithEdges();
+    void gameOver();
 };

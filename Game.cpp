@@ -1,5 +1,10 @@
 #include "Game.h"
 
+Game::Game()
+{
+    gameIsRunning = true;
+}
+
 void Game::draw()
 {
     snake.draw();
@@ -8,22 +13,42 @@ void Game::draw()
 
 void Game::update()
 {
-    snake.update();
-    checkCollisions();
-
+    if(gameIsRunning)
+    {
+        snake.update();
+        checkCollisionWithFood();
+        checkCollisionWithEdges();
+    }
 }
 
-void Game::checkCollisions()
+void Game::checkCollisionWithFood()
 {
     // detect if the snake ate the food
-    cout << "food: " << food.position.x << " " << food.position.y << endl;
-    cout << "head: " << snake.body.front().x << " " << snake.body.front().y << endl;
-
     if (Vector2Equals(snake.body.front(), food.position))
     {
-        food.position = food.generateRandomPosition();
-        snake.body.push_back(snake.body.back());
-        cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAA\n";
-    }
+        cout << "Snake Ate Food!\n";
+        // generate a new food position that is out of the snake
+        do
+        {
+            food.position = food.generateRandomPosition();
+        } while (snake.contains(food.position));
 
+        snake.body.push_back(Vector2Subtract(snake.body.back(), snake.direction));
+    }
+}
+
+void Game::checkCollisionWithEdges()
+{
+    //detect collisions with edges
+    if (snake.body[0].x >= cellCount || snake.body[0].x <= -1)
+        gameOver();
+
+    if (snake.body[0].y >= cellCount || snake.body[0].y <= -1)
+        gameOver();
+}
+
+void Game::gameOver()
+{
+    cout << "GAME OVER\n";
+    gameIsRunning = false;
 }

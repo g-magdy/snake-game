@@ -2,29 +2,36 @@
 
 Food::Food()
 {
-    position = generateRandomPosition();
-    std::cout << "Initial Position of food is (" << position.x << ", " << position.y << ")" << std::endl;
-
+    // ensure that the first food generation is out of the snake's body
+    do
+    {
+        position = generateRandomPosition();
+    } while (contain(initialSnakeBody, position));
+    
     Image img = LoadImage("food.png");
     texture = LoadTextureFromImage(img);
     UnloadImage(img);
-    
 }
 
 void Food::draw()
 {
     // DrawRectangle(position.x * cellSize, position.y * cellSize, cellSize, cellSize, YELLOW);
-    int drawX = static_cast<int>(position.x) * cellSize;
-    int drawY = static_cast<int>(position.y) * cellSize;
-    std::cout << "Drawing food at: (" << position.x << ", " << position.y << ") -> Pixel Coordinates: (" << drawX << ", " << drawY << ")" << std::endl;
     DrawTexture(texture, position.x * cellSize, position.y * cellSize, WHITE);
 }
 
-Vector2 Food::generateRandomPosition() 
+Vector2 Food::generateRandomPosition()
 {
     Vector2 pos = {static_cast<float>(GetRandomValue(0, cellCount - 1)), static_cast<float>(GetRandomValue(0, cellCount - 1))};
-    std::cout << "Generated random position: (" << pos.x << ", " << pos.y << ")" << std::endl;
     return pos;
+}
+
+bool Food::contain(deque<Vector2> d, Vector2 v)
+{
+    for (auto i : d)
+        if (Vector2Equals(i, v))
+            return true;
+    
+    return false;
 }
 
 Food::~Food()

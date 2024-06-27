@@ -16,5 +16,7 @@ public:
     void draw();
     void update();
 
+    bool contains(Vector2 vec);
+
     ~Snake();
 };

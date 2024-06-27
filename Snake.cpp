@@ -3,7 +3,7 @@
 
 Snake::Snake()
 {
-    body = {Vector2{6, 9}, Vector2{5, 9}, Vector2{4, 9}};
+    body = initialSnakeBody;
     currentDirection = RIGHT;
 
     direction = {1, 0};
@@ -47,4 +47,13 @@ void Snake::update()
 Snake::~Snake()
 {
 
+}
+
+
+bool Snake::contains(Vector2 vec)
+{
+    for (auto segment : body)
+        if (Vector2Equals(segment, vec))
+            return true;
+    return false;
 }

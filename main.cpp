@@ -13,7 +13,9 @@ const int cellCount = 25;
 
 const int windowSize = cellSize * cellCount;
 
-int currentFPS = 2;
+int currentFPS = 5;
+
+const deque<Vector2> initialSnakeBody = {Vector2{6, 9}, Vector2{5, 9}, Vector2{4, 9}};
 
 int main()
 {
