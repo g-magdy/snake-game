@@ -14,6 +14,8 @@ And the speed is reset back when the game ends.
 ## 🎮 Controls
 - **Player:**
   - Up, Down, Left, Right: `Arrow keys`
+  - Toggle Play/Pause: `P`
+  - Exit: `Esc`
 
 ## 📋 Requirements
 
