@@ -29,6 +29,7 @@ void Game::checkCollisionWithFood()
     if (Vector2Equals(snake.body.front(), food.position))
     {
         cout << "Snake Ate Food!\n";
+        interval = interval * 0.9;
         // generate a new food position that is out of the snake
         do
         {

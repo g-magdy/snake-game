@@ -21,8 +21,12 @@ const deque<Vector2> initialSnakeBody = {Vector2{6, 9}, Vector2{5, 9}, Vector2{4
 
 double lastUpdate = GetTime();
 
+const double initialInterval = 0.2;
+
 // as this gets smaller, the game gets faster.
-double interval = 0.2;
+double interval = initialInterval;
+
+
 
 enum GameState
 {
@@ -67,6 +71,7 @@ int main()
             state = PLAYING;
             game.gameisOver = false;
             game.gameIsRunning = true;
+            interval = initialInterval;
             game.snake.reset();
             game.food.reset();
         }
@@ -96,12 +101,12 @@ int main()
             DrawText("Press P to Pause, Press Esc to Exit", offset, windowSize - 50, 30, darkGreen);
         else if (state == PAUSED)
         {
-            DrawText("PAUSED", windowSize/2 - 100, windowSize/2 - 300, 60, darkGreen);
+            DrawText("PAUSED", windowSize/2 - 120, windowSize/2 - 300, 60, darkGreen);
             DrawText("Press P to Continue, Press Esc to Exit", offset, windowSize - 50, 30, darkGreen);
         }
         else
         {
-            DrawText("GAME OVER", windowSize/2 - 100, windowSize/2 - 300, 60, darkGreen);
+            DrawText("GAME OVER", windowSize/2 - 180, windowSize/2 - 300, 60, darkGreen);
             DrawText("Press Enter to Start again, Press Esc to Exit", offset, windowSize - 50, 30, darkGreen);
         }
         EndDrawing();

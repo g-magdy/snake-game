@@ -18,6 +18,9 @@ extern const int offset;
 extern const int playWindowSize;
 extern const int windowSize;
 
+extern double interval;
+extern const double initialInterval;
+
 extern const deque<Vector2> initialSnakeBody;
 
 /// @brief to determine the current direction of the snake progress
