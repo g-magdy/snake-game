@@ -26,8 +26,8 @@ And the speed is reset back when the game ends.
 
 1. **Clone the Repository:**
     ```sh
-    git clone https://github.com/g-magdy/pong-game.git
-    cd pong-game
+    git clone https://github.com/g-magdy/snake-game.git
+    cd snake-game
     ```
 
 2. **Install Raylib:**
